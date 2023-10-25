@@ -8,10 +8,11 @@
 
 namespace ELF {
 
-typedef uint32_t Elf32_Addr;
-typedef uint32_t Elf32_Off;
+typedef uint64_t Elf32_Addr;
+typedef uint64_t Elf32_Off;
 typedef uint16_t Elf32_Half;
 typedef uint32_t Elf32_Word;
+typedef uint64_t Elf32_QWord;
 
 enum {
   EI_MAG0 = 0,
@@ -132,23 +133,23 @@ struct Elf32_Phdr {
   Elf32_Off  p_offset;
   Elf32_Addr p_vaddr;
   Elf32_Addr p_paddr;
-  Elf32_Word p_filesz;
-  Elf32_Word p_memsz;
+  Elf32_QWord p_filesz;
+  Elf32_QWord p_memsz;
   Elf32_Word p_flags;
-  Elf32_Word p_align;
+  Elf32_QWord p_align;
 };
 
 struct Elf32_Shdr {
   Elf32_Word sh_name;
   Elf32_Word sh_type;
-  Elf32_Word sh_flags;
+  Elf32_QWord sh_flags;
   Elf32_Addr sh_addr;
   Elf32_Off  sh_offset;
-  Elf32_Word sh_size;
+  Elf32_QWord sh_size;
   Elf32_Word sh_link;
   Elf32_Word sh_info;
-  Elf32_Word sh_addralign;
-  Elf32_Word sh_entsize;
+  Elf32_QWord sh_addralign;
+  Elf32_QWord sh_entsize;
 };
 
 struct Elf32_Sym {
@@ -189,7 +190,7 @@ struct elf_t {
       return false;
     }
     // must be 32bit ELF
-    if (hdr->e_ident[ELF::EI_CLASS] != ELF::ELFCLASS32) {
+    if (hdr->e_ident[ELF::EI_CLASS] != ELF::ELFCLASS64) {
       return false;
     }
     // check machine type is RISCV
