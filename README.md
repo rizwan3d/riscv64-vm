@@ -3,6 +3,7 @@
 This is a RISCV-V Virtual Machine and instruction set emulator implementing a 32 bit RISCV-V processor model.  I started this project as a learning exercise to get more familiar with the RISC-V eco system and have increased the scope of the project as it matures.  The project itself is still very much in the early stages however.
 
 Features:
+- Support for ELF64
 - Support for RV32I and RV32M
 - Partial support for RV32F and RV32A
 - Syscall emulation and host passthrough
@@ -17,19 +18,11 @@ Note: The Binary Translation emulator is currently only available when building 
 
 See [news](NEWS.md) for a development log and updates.
 
-
-----
-## Build Status
-[![Build Status](https://travis-ci.org/bit-hack/riscv-vm.svg?branch=master)](https://travis-ci.org/bit-hack/riscv-vm)
-[![Build status](https://ci.appveyor.com/api/projects/status/sxu9jv014g179mus/branch/master?svg=true)](https://ci.appveyor.com/project/8BitPimp/riscv-vm/branch/master)
-
-
 ----
 ## Build requirements
 - C++ 14 compatible compiler  (VisualStudio 15+, GCC 4.9+)
 - CMake 3.0 or above
 - SDL1.2 (if you want video support)
-
 
 ----
 ## Compiling the project
@@ -59,6 +52,12 @@ If you are the author of any of these tests and are unhappy with its inclusion h
 
 
 ----
+
+## Online Assembly 
+SharpRISCV is an implementation of RISC-V assembly in C#. First RISC V Assembly that build windows executable file any many more. [Write RISC-V ASM code in your browser](https://rizwan3d.github.io/SharpRISCV/)
+
+----
+
 ## Notes
 
 - Written referencing the `20191214-draft` Volume I: Unprivileged ISA document
