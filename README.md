@@ -37,10 +37,11 @@ make
 ----
 ## Executing a basic program
 
-A simple RISC-V program (i.e. `main.c`) can be compiled and executed as follows:
+A simple RISC-V program [(i.e. `HelloWorld.s`)](https://rizwan3d.github.io/SharpRISCV/) can be compiled and executed as follows:
 ```
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 main.c
-riscv_vm a.out
+riscv64-unknown-elf-as -o HelloWorld.o HelloWorld.s
+riscv64-unknown-elf-ld -o HelloWorld HelloWorld.o
+riscv_vm.exe HelloWorld
 ```
 
 
